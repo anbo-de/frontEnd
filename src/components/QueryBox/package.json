@@ -1,0 +1,6 @@
+{
+  "name": "QueryBox",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./QueryBox.js"
+}

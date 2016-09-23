@@ -9,17 +9,23 @@
 
 import React, { Component } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Header.scss';
+import s from './HeaderSearch.scss';
+import n from '../Navigation/Navigation.scss';
 import Link from '../Link';
 import Navigation from '../Navigation';
+import QueryBox from '../QueryBox';
 
-class Header extends Component {
+class HeaderSearch extends Component {
 
   render() {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <Navigation className={s.nav} />
+          <Navigation className={s.nav} linkClassName={n.darklink}/>
+          <Link className={s.brand} to="/">
+            <img src={require('./WDAquaLogo2.png')} height="24" alt="WDAqua" />
+          </Link>
+          <QueryBox/>
           <div className={s.banner}>
           </div>
         </div>
@@ -29,5 +35,4 @@ class Header extends Component {
 
 }
 
-export default withStyles(Header, s);
-
+export default withStyles(HeaderSearch, s, n);

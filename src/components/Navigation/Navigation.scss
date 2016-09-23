@@ -7,11 +7,12 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-.root {
 
+.root {
 }
 
-.link {
+.link,
+.darklink {
   display: inline-block;
   padding: 3px 8px;
   text-decoration: none;
@@ -26,6 +27,16 @@
 
 .link:hover {
   color: rgba(255, 255, 255, 1);
+}
+
+.darklink,
+.darklink:active,
+.darklink:visited {
+  color: rgba(51, 51, 51, 0.6);
+}
+
+.darklink:hover {
+  color: rgb(51, 51, 51);
 }
 
 .highlight {
