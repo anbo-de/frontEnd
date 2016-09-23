@@ -25,12 +25,6 @@ class ContactPage extends Component {
     this.state = {  label : "" };
   }
 
-  // getInitialState() {
-  //   return {
-  //     label: "test"
-  //   };
-  // }
-
   componentWillMount() {
     this.context.onSetTitle(title);
     var sparqlQuery="SELECT ?label WHERE { " +

@@ -1,0 +1,6 @@
+{
+  "name": "AnswerPage",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AnswerPage.js"
+}

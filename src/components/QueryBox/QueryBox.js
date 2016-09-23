@@ -11,15 +11,29 @@ import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './QueryBox.scss';
 
+// function queryTextChange(e){
+//   this.setState({querytext: e.target.value});
+// }
+
 class QueryBox extends Component {
 
-  static propTypes = {};
+  static propTypes = {
+    size: PropTypes.string.isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+    // this.state = {  querytext : "" };
+  }
+
+  // _handleChange = (event) => this.setState({querytext: e.target.value});
+
 
   render() {
     return (
-        <form action="" method="" autoComplete="on" className={s.querybox}>
+        <form action="/question" method="" autoComplete="on" className={s.querybox}>
           <div>
-            <input type="text" name="question" placeholder="Enter your question..." size="50"/>
+            <input type="text" name="q" placeholder="Enter your question..." size={this.props.size}/>
             <input type="submit" value="Go" className={s.space}/>
           </div>
         </form>

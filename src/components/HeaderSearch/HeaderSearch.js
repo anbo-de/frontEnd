@@ -25,7 +25,7 @@ class HeaderSearch extends Component {
           <Link className={s.brand} to="/">
             <img src={require('./WDAquaLogo2.png')} height="24" alt="WDAqua" />
           </Link>
-          <QueryBox/>
+          <QueryBox size="50"/>
           <div className={s.banner}>
           </div>
         </div>
