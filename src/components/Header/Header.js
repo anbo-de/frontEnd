@@ -12,6 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.scss';
 import Link from '../Link';
 import Navigation from '../Navigation';
+import n from '../Navigation/Navigation.scss';
 
 class Header extends Component {
 
@@ -19,7 +20,7 @@ class Header extends Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <Navigation className={s.nav} />
+          <Navigation className={s.nav} linkClassName={n.darklink} />
           <div className={s.banner}>
           </div>
         </div>
@@ -29,5 +30,5 @@ class Header extends Component {
 
 }
 
-export default withStyles(Header, s);
+export default withStyles(Header, s, n);
 

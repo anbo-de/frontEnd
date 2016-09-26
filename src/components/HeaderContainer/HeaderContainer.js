@@ -9,29 +9,26 @@
 
 import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './HomePage.scss';
-import QueryBox from '../QueryBox';
+import s from './HeaderContainer.scss';
+import Header from '../Header';
+import HeaderSearch from '../HeaderSearch';
 
-// const meta = {
-//   title: 'WDAqua',
-// }
+class HeaderContainer extends Component {
 
-class HomePage extends Component {
-
-  static propTypes = {};
-
-  constructor(props) {
-    super(props);
-  }
+  static propTypes = {
+    path: PropTypes.string.isRequired,
+  };
 
   render() {
+
     return (
-      <div className={s.container}>
-        <img src={require('./../../public/WDAquaLogo2.png')} height="72" alt="WDAqua" className={s.logo}/>
-        <QueryBox size="70"/>
+      <div>
+      {this.props.path != '/about' ? <HeaderSearch/> : <Header/>}
       </div>
     );
   }
 
 }
-export default withStyles(HomePage, s);
+
+export default withStyles(HeaderContainer, s);
+

@@ -13,7 +13,8 @@ import s from './App.scss';
 import HeaderSearch from '../HeaderSearch';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
-import QueryBox from '../QueryBox';
+import HeaderContainer from '../HeaderContainer';
+import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
       onSetMeta: PropTypes.func,
       onPageNotFound: PropTypes.func,
     }),
+ //   head: PropTypes.element.isRequired,
     children: PropTypes.element.isRequired,
     error: PropTypes.object,
   };
@@ -50,14 +52,20 @@ class App extends Component {
     this.removeCss = insertCss(s);
   }
 
+  // componentDidMount() {
+  //   console.log(window.location.href);
+  // }
+
   componentWillUnmount() {
     this.removeCss();
   }
 
   render() {
+    var path = this.props.children.props.path;
+
     return !this.props.error ? (
       <div>
-        <HeaderSearch />
+        <HeaderSearch path={path}/>
         {this.props.children}
         <Feedback />
         <Footer />

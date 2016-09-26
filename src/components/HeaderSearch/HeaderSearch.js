@@ -7,7 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './HeaderSearch.scss';
 import n from '../Navigation/Navigation.scss';
@@ -17,15 +17,22 @@ import QueryBox from '../QueryBox';
 
 class HeaderSearch extends Component {
 
+  static propTypes = {
+    path: PropTypes.string.isRequired,
+  };
+
   render() {
+    console.log("testttttttttttttttttttt");
+    console.log(this.props.path);
+    console.log("testttttttttttttttttttt2");
     return (
       <div className={s.root}>
         <div className={s.container}>
           <Navigation className={s.nav} linkClassName={n.darklink}/>
-          <Link className={s.brand} to="/">
-            <img src={require('./WDAquaLogo2.png')} height="24" alt="WDAqua" />
-          </Link>
-          <QueryBox size="50"/>
+          {this.props.path == "/" ? <div className={s.placeholder}></div> : <Link className={s.brand} to="/">
+            <img src={require('./../../public/WDAquaLogo2.png')} height="24" alt="WDAqua" />
+            </Link>}
+          {this.props.path == "/" ? null : <QueryBox size="50"/>}
           <div className={s.banner}>
           </div>
         </div>
