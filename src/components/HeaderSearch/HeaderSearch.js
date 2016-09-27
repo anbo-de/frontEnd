@@ -25,6 +25,7 @@ class HeaderSearch extends Component {
     console.log("testttttttttttttttttttt");
     console.log(this.props.path);
     console.log("testttttttttttttttttttt2");
+
     return (
       <div className={s.root}>
         <div className={s.container}>

@@ -61,7 +61,7 @@ class App extends Component {
   }
 
   render() {
-    var path = this.props.children.props.path;
+    var path = this.props.path;
 
     return !this.props.error ? (
       <div>

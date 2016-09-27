@@ -23,7 +23,7 @@ import HomePage from './components/HomePage';
 const router = new Router(on => {
   on('*', async (state, next) => {
     const component = await next();
-    return component && <App context={state.context}>{component}</App>;
+    return component && <App path={state.path} context={state.context}>{component}</App>;
   });
 
   on('', async () => <HomePage/>);
