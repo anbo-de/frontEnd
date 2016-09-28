@@ -31,7 +31,7 @@ class QueryBox extends Component {
 
   render() {
     return (
-        <form action="http://wdaqua-qanary.univ-st-etienne.fr/" method="POST" autoComplete="on" className={s.querybox}>
+        <form action="/question" method="GET" autoComplete="on" className={s.querybox}>
           <div>
             <input type="text" name="query" placeholder="Enter your question..." size={this.props.size}/>
             <input type="submit" value="Go" className={s.space}/>
