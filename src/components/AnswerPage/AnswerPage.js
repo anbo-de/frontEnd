@@ -29,19 +29,16 @@ class AnswerPage extends Component {
 
 
   componentDidMount() {
-/*
+
     var qresult = $.post("http://wdaqua-qanary.univ-st-etienne.fr/gerbil", this.props.query, function (data){
       console.log("ressulllllttttttttttt");
       console.log(data);
 
       handledata(data);
 
-    }.bind(this), "json");
 
-    // qresult.done(function (data){
-    //   console.log(data);
-    // });
-*/
+
+
 
     var gerbilResult={"questions":[{"question":{"answers":"{   \"head\": {     \"vars\": [ \"x\" ]   } ,   \"results\": {     \"bindings\": [       {         \"x\": { \"type\": \"uri\" , \"value\": \"http://dbpedia.org/resource/Michelle_Obama\" }       }     ]   } } ","language":[{"SPARQL":"SELECT DISTINCT ?x WHERE {    <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/property/spouse> ?x .    ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Agent> .  }  limit 1000"}]}}]};
 
@@ -102,7 +99,7 @@ class AnswerPage extends Component {
     else {
       //if there is no results...
     }
-
+    }.bind(this), "json");
   }
 
   render() {
