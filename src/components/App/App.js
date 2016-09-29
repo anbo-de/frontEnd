@@ -13,7 +13,6 @@ import s from './App.scss';
 import HeaderSearch from '../HeaderSearch';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
-import HeaderContainer from '../HeaderContainer';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router';
 
 class App extends Component {

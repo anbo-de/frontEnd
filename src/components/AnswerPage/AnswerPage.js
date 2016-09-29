@@ -12,6 +12,32 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './AnswerPage.scss';
 import $ from 'jquery';
 
+
+//methods to handle and render/display the results retrieved from the wdaqua server
+
+function handledata(data){
+
+  var jresult = JSON.parse(data.questions[0].question.answers);
+
+  console.log("json parse printtttttt");
+  console.log("result count: " + jresult.results.bindings.length);
+  console.log("results: ");
+  console.log(jresult.results.bindings[0].x);
+
+  //depending on the number of results, handle accordingly:
+  if (jresult.results.bindings.length == 1){
+
+  }
+  else if (jresult.results.bindings.length > 1) {
+    //do something
+  }
+  else {
+    //if there is no results...
+  }
+
+}
+
+
 class AnswerPage extends Component {
 
   static propTypes = {
@@ -22,36 +48,14 @@ class AnswerPage extends Component {
     this.state = {  label : "" };
   }
 
-  // console.log("tessssssstttttttttttting7");
-  // console.log(this.props.query);
-  // console.log("testttttttttttttttttting8");
 
   componentDidMount() {
-
-    // var sparqlQuery="SELECT ?label WHERE { " +
-    //    " <http://dbpedia.org/resource/Barack_Obama> <http://www.w3.org/2000/01/rdf-schema#label> ?label " +
-    //    "FILTER (lang(?label)=\"en\") " +
-    //    "}";
-    //  console.log("http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query="+encodeURIComponent(sparqlQuery)+"&format=application%2Fsparql-results%2Bjson&CXML_redir_for_hrefs=&timeout=30000&debug=on");
-    // this.serverRequest = $.get(
-    //    "http://dbpedia.org/sparql?query="+encodeURIComponent(sparqlQuery)+"&format=application%2Fsparql-results%2Bjson&CXML_redir_for_hrefs=&timeout=30000&debug=on",
-    //    function (result) {
-    //      console.log(result);
-    //
-    // //     console.log(result.results.bindings[0].label.value);
-    // //     //this.context.onSetLabel(result.results.bindings[0].label.value);
-    // //     //var lastGist = result[0];
-    // //     this.setState({
-    // //       label: result.results.bindings[0].label.value
-    // //       //lastGistUrl: lastGist.html_url
-    // //     });
-    //    }.bind(this));
-
-    console.log("testprintttttttt");
 
     var qresult = $.post("http://wdaqua-qanary.univ-st-etienne.fr/gerbil", this.props.query, function (data){
       console.log("ressulllllttttttttttt");
       console.log(data);
+
+      handledata(data);
 
     }.bind(this), "json");
 
@@ -59,13 +63,7 @@ class AnswerPage extends Component {
     //   console.log(data);
     // });
 
-    console.log("testprintttttttt2");
-
   }
-
-  // componentWillUnmount() {
-  //   this.serverRequest.abort();
-  // }
 
   render() {
     console.log("query paramsss...............:");
