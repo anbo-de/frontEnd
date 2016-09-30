@@ -86,7 +86,7 @@ class AnswerPage extends Component {
               console.log(result.results.bindings[0].image.value);
               console.log(result.results.bindings[0].abstract.value);
               this.setState({ label : result.results.bindings[0].label.value,
-                abstact : result.results.bindings[0].abstract.value,
+                abstract : result.results.bindings[0].abstract.value,
                 image : result.results.bindings[0].image.value});
             }.bind(this), "json")
 
