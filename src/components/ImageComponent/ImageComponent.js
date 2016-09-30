@@ -31,7 +31,7 @@ class ImageComponent extends Component {
     console.log("prop image"+this.props.image);
     return (
       <div className={s.container}>
-        <img src={this.props.image}></img>
+        <img src={this.props.image} className={s.img}></img>
       </div>
     );
   }

@@ -121,10 +121,11 @@ class AnswerPage extends Component {
     console.log(this.state.label);
     return (
       <div className={s.container}>
-        <h1>Answer</h1>
-        < ImageComponent image={this.state.image}></ImageComponent>
-        <Label>{this.state.label}</Label>
-        <Label>{this.state.abstract}</Label>
+        <ImageComponent image={this.state.image}></ImageComponent>
+        <div className={s.textboxes}>
+          <Label css={s.answer}>{this.state.label}</Label>
+          <Label>{this.state.abstract}</Label>
+        </div>
       </div>
     );
   }

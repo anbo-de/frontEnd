@@ -14,6 +14,7 @@ import s from './Label.scss';
 class Label extends Component {
 
   static propTypes = {
+    css: PropTypes.cssText,
   };
 
   constructor(props) {
@@ -24,7 +25,7 @@ class Label extends Component {
   render() {
     return (
       <div className={s.container}>
-        <p>{this.props.children}</p>
+        <p className={this.props.css}>{this.props.children}</p>
       </div>
     );
   }

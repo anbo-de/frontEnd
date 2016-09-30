@@ -27,8 +27,8 @@ class HomePage extends Component {
   render() {
     return (
       <div className={s.container}>
-        <img src={require('./../../public/WDAquaLogo2.png')} height="72" alt="WDAqua" className={s.logo}/>
-        <QueryBox size="70"/>
+          <img src={require('./../../public/WDAquaLogo2.png')} height="72" alt="WDAqua" className={s.logo}/>
+          <QueryBox size="70"/>
       </div>
     );
   }
