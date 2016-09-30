@@ -33,16 +33,10 @@ class AnswerPage extends Component {
     var qresult = $.post("http://wdaqua-qanary.univ-st-etienne.fr/gerbil", this.props.query, function (data){
       console.log("ressulllllttttttttttt");
       console.log(data);
-
-      handledata(data);
-
-
-
-
-
+      
     var gerbilResult={"questions":[{"question":{"answers":"{   \"head\": {     \"vars\": [ \"x\" ]   } ,   \"results\": {     \"bindings\": [       {         \"x\": { \"type\": \"uri\" , \"value\": \"http://dbpedia.org/resource/Michelle_Obama\" }       }     ]   } } ","language":[{"SPARQL":"SELECT DISTINCT ?x WHERE {    <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/property/spouse> ?x .    ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Agent> .  }  limit 1000"}]}}]};
 
-    var jresult = JSON.parse(gerbilResult.questions[0].question.answers);
+    var jresult = JSON.parse(data.questions[0].question.answers);
 
     console.log("json");
     console.log(jresult);
@@ -79,10 +73,11 @@ class AnswerPage extends Component {
             console.log(result.results.bindings[0].label.value);
             console.log(result.results.bindings[0].image.value);
             console.log(result.results.bindings[0].abstract.value);
-            this.setState({ label : result.results.bindings[0].label.value});
-            this.setState({ abstact : result.results.bindings[0].abstract.value});
-            this.setState({ image : result.results.bindings[0].image.value});
-          })
+            this.setState({ label : result.results.bindings[0].label.value,
+                            abstact : result.results.bindings[0].abstract.value,
+                            image : result.results.bindings[0].image.value});
+          }.bind(this), "json")
+
 
       } else {
         //There is only one label
@@ -108,7 +103,7 @@ class AnswerPage extends Component {
     return (
       <div className={s.container}>
         <h1>Answer</h1>
-        < ImageComponent img={this.state.image}></ImageComponent>
+        < ImageComponent image={this.state.image}></ImageComponent>
       </div>
     );
   }

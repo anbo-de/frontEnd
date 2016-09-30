@@ -15,11 +15,12 @@ import $ from 'jquery';
 class ImageComponent extends Component {
 
   static propTypes = {
+    image: PropTypes.string.isRequired,
   };
 
   constructor(props) {
     super(props);
-    this.state = {  image : "" };
+    //this.state = {  image : "" };
   }
 
 
@@ -27,6 +28,7 @@ class ImageComponent extends Component {
   }
 
   render() {
+    console.log("prop image"+this.props.image);
     return (
       <div className={s.container}>
         <img src={this.props.image}></img>
