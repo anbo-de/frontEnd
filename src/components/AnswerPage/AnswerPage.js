@@ -65,7 +65,7 @@ class AnswerPage extends Component {
         var value=jresult.results.bindings[0][variable].value;
         console.log("Result "+type+" "+value);
 
-        if (type="uri"){
+        if (type=="uri"){
           //There is only one uri
           var sparqlQuery="select ?label ?abstract ?image where { "
             + "<"+value+"> rdfs:label ?label . "
@@ -92,8 +92,11 @@ class AnswerPage extends Component {
 
 
         }
-        else if (type == "literal") {
-          //do something
+        else if (type=="typed-literal") {
+          console.log("Here"+jresult.results.bindings[0][variable].value);
+          this.setState({
+            label : jresult.results.bindings[0][variable].value,
+          });
         }
       }
 
