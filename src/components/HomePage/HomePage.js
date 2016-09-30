@@ -12,11 +12,13 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './HomePage.scss';
 import QueryBox from '../QueryBox';
 
-// const meta = {
-//   title: 'WDAqua',
-// }
+const title = 'WDAqua';
 
 class HomePage extends Component {
+
+  static contextTypes = {
+    onSetTitle: PropTypes.func.isRequired,
+  };
 
   static propTypes = {};
 
@@ -27,7 +29,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className={s.container}>
-          <img src={require('./../../public/WDAquaLogo2.png')} height="72" alt="WDAqua" className={s.logo}/>
+          <img src={require('./../../public/WDAquaLogo2.png')} height="96" alt="WDAqua" className={s.logo}/>
           <QueryBox size="70"/>
       </div>
     );
