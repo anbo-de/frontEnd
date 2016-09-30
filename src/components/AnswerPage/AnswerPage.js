@@ -13,6 +13,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './AnswerPage.scss';
 import $ from 'jquery';
 import Label from '../Label';
+import Loader from 'react-loader';
 
 
 class AnswerPage extends Component {
@@ -23,6 +24,7 @@ class AnswerPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loaded: false,
       label : "",
       image : "",
       abstract : ""
@@ -31,7 +33,6 @@ class AnswerPage extends Component {
 
 
   componentDidMount() {
-
     var qresult = $.post("http://wdaqua-qanary.univ-st-etienne.fr/gerbil", this.props.query, function (data){
       console.log("ressulllllttttttttttt");
       console.log(data);
@@ -50,6 +51,7 @@ class AnswerPage extends Component {
       if (jresult.hasOwnProperty("boolean")){
         this.setState({
           label: jresult.boolean,
+          loaded: true
         })
       } else {
         //depending on the number of results, handle accordingly:
@@ -85,7 +87,8 @@ class AnswerPage extends Component {
                 this.setState({
                   label: result.results.bindings[0].label.value,
                   abstract: result.results.bindings[0].abstract.value,
-                  image: result.results.bindings[0].image.value
+                  image: result.results.bindings[0].image.value,
+                  loaded: true
                 });
               }.bind(this), "json")
 
@@ -95,6 +98,7 @@ class AnswerPage extends Component {
             console.log("Here" + jresult.results.bindings[0][variable].value);
             this.setState({
               label: jresult.results.bindings[0][variable].value,
+              loaded: true
             });
           }
         }
@@ -104,6 +108,7 @@ class AnswerPage extends Component {
         else {
           this.setState({
             label: "No results",
+            loaded: true
           });
         }
       }
@@ -123,9 +128,11 @@ class AnswerPage extends Component {
     console.log(this.state.label);
     return (
       <div className={s.container}>
-        <Label>{this.state.label}</Label>
-        {(this.state.image == "") ? null : < ImageComponent image={this.state.image}></ImageComponent>}
-        {(this.state.abstract == "") ? null : <Label>{this.state.abstract}</Label>}
+        <Loader loaded={this.state.loaded}>
+          <Label>{this.state.label}</Label>
+          {(this.state.image == "") ? null : < ImageComponent image={this.state.image}></ImageComponent>}
+          {(this.state.abstract == "") ? null : <Label>{this.state.abstract}</Label>}
+        </Loader>
       </div>
     );
   }
