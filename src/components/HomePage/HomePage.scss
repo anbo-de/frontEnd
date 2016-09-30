@@ -5,11 +5,16 @@
 
 .container {
   margin: 0 auto;
-  padding: 0 0 40px;
-  max-width: $max-content-width;
+  width: $max-content-width;
+}
+
+.center {
+  display: inline-block;
+  margin: auto;
 }
 
 .logo {
-  padding:70px 0 20px;
+  padding: 18% 0 20px 0;
   display: block;
+  margin: auto;
 }

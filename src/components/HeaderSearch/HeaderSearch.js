@@ -19,6 +19,7 @@ class HeaderSearch extends Component {
 
   static propTypes = {
     path: PropTypes.string.isRequired,
+    query: PropTypes.string,
   };
 
   render() {

@@ -27,7 +27,8 @@ class AnswerPage extends Component {
       loaded: false,
       label : "",
       image : "",
-      abstract : ""
+      abstract : "",
+      answertype : "simple"
     };
   }
 
@@ -51,7 +52,8 @@ class AnswerPage extends Component {
       if (jresult.hasOwnProperty("boolean")){
         this.setState({
           label: jresult.boolean,
-          loaded: true
+          loaded: true,
+          answertype: "simple"
         })
       } else {
         //depending on the number of results, handle accordingly:
@@ -88,7 +90,8 @@ class AnswerPage extends Component {
                   label: result.results.bindings[0].label.value,
                   abstract: result.results.bindings[0].abstract.value,
                   image: result.results.bindings[0].image.value,
-                  loaded: true
+                  loaded: true,
+                  answertype: "detail"
                 });
               }.bind(this), "json")
 
@@ -98,7 +101,8 @@ class AnswerPage extends Component {
             console.log("Here" + jresult.results.bindings[0][variable].value);
             this.setState({
               label: jresult.results.bindings[0][variable].value,
-              loaded: true
+              loaded: true,
+              answertype: "simple"
             });
           }
         }
@@ -108,7 +112,8 @@ class AnswerPage extends Component {
         else {
           this.setState({
             label: "No results",
-            loaded: true
+            loaded: true,
+            answertype: "simple"
           });
         }
       }
@@ -126,18 +131,27 @@ class AnswerPage extends Component {
     console.log(this.props.query);
     console.log("the label has become....:");
     console.log(this.state.label);
+
+    // var answerformat;
+    // if (this.state.answertype == "simple") {
+    //   answerformat = <Label>{this.state.abstract}</Label>;
+    // } else if (this.state.answertype == "detail") {
+    //   answerformat = ();
+    // }
+    // else {}
+
+//to refactor so don't have to check the same answer type multiple times
     return (
       <div className={s.container}>
-        <Loader loaded={this.state.loaded}>
-          <Label>{this.state.label}</Label>
-          {(this.state.image == "") ? null : < ImageComponent image={this.state.image}></ImageComponent>}
-          {(this.state.abstract == "") ? null : <Label>{this.state.abstract}</Label>}
-        </Loader>
+        {(this.state.answertype == "simple") ? <Label css={s.answer}>{this.state.abstract}</Label> : null}
+        {(this.state.answertype == "detail") ? <ImageComponent image={this.state.image}></ImageComponent> : null}
+        {(this.state.answertype == "detail") ? <div className={s.textboxes}>
+          <Label css={s.answer}>{this.state.label}</Label>
+          <Label>{this.state.abstract}</Label>
+        </div> : null}
       </div>
     );
   }
-
-
 
 
 }

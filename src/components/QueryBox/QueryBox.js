@@ -19,6 +19,7 @@ class QueryBox extends Component {
 
   static propTypes = {
     size: PropTypes.string.isRequired,
+    query: PropTypes.string,
   };
 
   constructor(props) {
@@ -33,7 +34,7 @@ class QueryBox extends Component {
     return (
         <form action="/question" method="GET" autoComplete="on" className={s.querybox}>
           <div>
-            <input type="text" name="query" placeholder="Enter your question..." size={this.props.size}/>
+            <input type="text" name="query" placeholder="Enter your question..." size={this.props.size} defaultValue={this.props.query}/>
             <input type="submit" value="Go" className={s.space}/>
           </div>
         </form>

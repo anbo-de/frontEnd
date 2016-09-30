@@ -12,6 +12,12 @@
 .root {
   background: #333;
   color: #fff;
+  position: absolute;
+  bottom:0;
+  right: 0;
+  left: 0;
+  border-top: 30px solid #f5f5f5;
+  box-sizing: border-box;
 }
 
 .container {
