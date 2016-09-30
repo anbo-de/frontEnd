@@ -44,13 +44,11 @@ class AnswerPage extends Component {
 
       console.log("json");
       console.log(jresult);
-      console.log("result count: " + jresult.results.bindings.length);
-      console.log("results: ");
 
       //check if it is an ask query
       if (jresult.hasOwnProperty("boolean")){
         this.setState({
-          label: jresult.boolean,
+          label: jresult.boolean.toString,
           loaded: true
         })
       } else {
