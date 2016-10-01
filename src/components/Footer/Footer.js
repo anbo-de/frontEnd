@@ -24,7 +24,7 @@ class Footer extends Component {
           <span className={s.spacer}>·</span>
           <a
             className={s.link}
-            href="https://github.com/kriasoft/react-starter-kit/issues/new"
+            href="https://github.com/WDAqua/frontEnd/issues/new"
           >Report an issue</a>
         </div>
       </div>
