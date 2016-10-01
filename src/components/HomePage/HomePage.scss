@@ -6,15 +6,16 @@
 .container {
   margin: 0 auto;
   width: $max-content-width;
+  text-align: center;
 }
 
 .center {
-  display: inline-block;
   margin: auto;
+  text-align: center;
 }
 
 .logo {
-  padding: 18% 0 20px 0;
+  padding: 18% 0 4% 0;
   display: block;
   margin: auto;
 }
