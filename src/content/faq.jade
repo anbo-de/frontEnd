@@ -2,46 +2,28 @@
 title: FAQ
 component: ContentPage
 ---
-p.
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean consequat
-  tortor fermentum mi fermentum dignissim. Nullam vel ipsum ut ligula elementum
-  lobortis. Maecenas aliquam, massa laoreet lacinia pretium, nisi urna venenatis
-  tortor, nec imperdiet tellus libero efficitur metus. Fusce semper posuere
-  ligula, et facilisis metus bibendum interdum. Mauris at mauris sit amet sem
-  pharetra commodo a eu leo. Nam at est non risus cursus maximus. Nam feugiat
-  augue libero, id consectetur tortor bibendum non. Quisque nec fringilla lorem.
-  Nullam efficitur vulputate mauris, nec maximus leo dignissim id.
-p.
-  In hac habitasse platea dictumst. Duis sagittis dui ac ex suscipit maximus.
-  Morbi pellentesque venenatis felis sed convallis. Nulla varius, nibh vitae
-  placerat tempus, mauris sem elementum ipsum, eget sollicitudin nisl est vel
-  purus. Fusce malesuada odio velit, non cursus leo fermentum id. Cras pharetra
-  sodales fringilla. Etiam quis est a dolor egestas pellentesque. Maecenas non
-  scelerisque purus, congue cursus arcu. Donec vel dapibus mi. Mauris maximus
-  posuere placerat. Sed et libero eu nibh tristique mollis a eget lectus. Donec
-  interdum augue sollicitudin vehicula hendrerit. Vivamus justo orci, molestie
-  ac sollicitudin ac, lobortis at tellus. Etiam rhoncus ullamcorper risus eu
-  tempor. Sed porttitor, neque ac efficitur gravida, arcu lacus pharetra dui, in
-  consequat elit tellus auctor nulla. Donec placerat elementum diam, vitae
-  imperdiet lectus luctus at.
-p.
-  Nullam eu feugiat mi. Quisque nec tristique nisl, dignissim dictum leo. Nam
-  non quam nisi. Donec rutrum turpis ac diam blandit, id pulvinar mauris
-  suscipit. Pellentesque tincidunt libero ultricies risus iaculis, sit amet
-  consequat velit blandit. Fusce quis varius nulla. Nullam nisi nisi, suscipit
-  ut magna quis, feugiat porta nibh. Sed id enim lectus. Suspendisse elementum
-  justo sapien, sit amet consequat orci accumsan et. Aliquam ornare ullamcorper
-  sem sed finibus. Nullam ac lacus pulvinar, egestas felis ut, accumsan est.
-p.
-  Pellentesque sagittis vehicula sem quis luctus. Proin sodales magna in lorem
-  hendrerit aliquam. Integer eu varius orci. Vestibulum ante ipsum primis in
-  faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum ante ipsum
-  primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut at mauris
-  nibh. Suspendisse maximus ac eros at vestibulum.
-p.
-  Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque egestas
-  tortor et dui consequat faucibus. Nunc vitae odio ornare, venenatis ligula a,
-  vulputate nisl. Aenean congue varius ex, sit amet bibendum odio posuere at.
-  Nulla facilisi. In finibus, nulla vitae tincidunt ornare, sapien nulla
-  fermentum mauris, sed consectetur tortor arcu eget arcu. Vestibulum vel quam
-  enim.
+p
+  h4 How does this Question Answering (QA) system work?
+  p This QA system is a so called "knowledge (or ontology) based" QA system. A knowledge base is a collection of
+    | facts that can be interpreted by a maschine. Such a fact can look like this:
+    pre "Alan Turing" "student of" "Alonzo Church"
+    | We have million of such facts and we use them to find an answer to your question. A big advantage over traditional
+    | search engines is that different information can be combined so that we can answer questions like
+    | 'Who was a student of Alonzo Church?'.
+
+  h4 What data are you using?
+  p In this version we are using as an underlying dataset <a href="http://dbpedia.org/">DBpedia</a>. This dataset contains
+  | facts extracted from the infoboxes of wikipedia. Consider for example the wikipedia infobox of the
+  | <a href="https://en.wikipedia.org/wiki/European_Union">European Union</a>. It contains for example the information that
+  | the capital is Brussel. This information is converted in the triple
+  pre "European Union" "capital" "Brussel"
+  | allowing us to answer a question like 'What is the capital of the EU?'. All information about the European Union
+  | contained in Dbpedia can be found <a href="http://dbpedia.org/page/European_Union">here</a>.
+
+  h4 Why does the QA wrongly answer my question?
+  p There are mainly to reasons for that. The first is that we simply do not have the data to answer it. We generally
+    | try to find the best interpretation of your question based on the data we use. If we do not have the data also the
+    | interpretation will be wrong. The second reason is that we have the data but we are not able to correctly interpret
+    | your question. We are trying to imporve over time the quality of the QA system by adding new datasets and by refining
+    | the algorithm that interpretes your question. So hopfully next time it works ; )
+
