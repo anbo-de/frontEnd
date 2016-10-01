@@ -142,7 +142,7 @@ class AnswerPage extends Component {
     return (
       <div className={s.container}>
         <Loader loaded={this.state.loaded}>
-        {(this.state.answertype == "simple") ? <Label css={s.answer}>{this.state.abstract}</Label> : null}
+        {(this.state.answertype == "simple") ? <Label css={s.answer}>{this.state.label}</Label> : null}
         {(this.state.answertype == "detail") ? <ImageComponent image={this.state.image}></ImageComponent> : null}
         {(this.state.answertype == "detail") ? <div className={s.textboxes}>
           <Label css={s.answer}>{this.state.label}</Label>
