@@ -30,7 +30,7 @@ class HeaderSearch extends Component {
           {this.props.path == "/" ? <div className={s.placeholder}></div> : <Link className={s.brand} to="/">
             <img src={require('./../../public/WDAquaLogo2.png')} height="24" alt="WDAqua" />
             </Link>}
-          {(this.props.path.substring(0, 9) != "/question") ? null : <QueryBox size="50"/>}
+          {(this.props.path.substring(0, 9) != "/question") ? null : <QueryBox size="50" query={this.props.query}/>}
           <div className={s.banner}>
           </div>
         </div>
