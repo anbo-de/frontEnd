@@ -34,8 +34,8 @@ class AnswerPage extends Component {
 
 
   componentDidMount() {
+    //retrives the answer from the gerbil interface
     var qresult = $.post("http://wdaqua-qanary.univ-st-etienne.fr/gerbil", this.props.query, function (data){
-      console.log("ressulllllttttttttttt");
       console.log(data);
 
       //would like to refactor the following to separate functions. this.setState() is not recognized in
@@ -49,7 +49,7 @@ class AnswerPage extends Component {
       //check if it is an ask query
       if (jresult.hasOwnProperty("boolean")){
         this.setState({
-          label: jresult.boolean.toString,
+          label: (jresult.boolean==true) ? "True" : "False",
           loaded: true,
           answertype: "simple"
         })
