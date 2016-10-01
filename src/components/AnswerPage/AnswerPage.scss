@@ -4,7 +4,21 @@
 }
 
 .container {
-  margin: 0 auto;
+  margin: 30px auto;
   padding: 0 0 40px;
   max-width: $max-content-width;
+}
+
+.answer {
+  color: #0083b6;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+@media screen and (min-width: $screen-sm-min){
+  .textboxes {
+    display: inline-block;
+    width: 68%;
+    margin: 0 20px 0 0;
+  }
 }

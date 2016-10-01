@@ -19,6 +19,7 @@ class HeaderSearch extends Component {
 
   static propTypes = {
     path: PropTypes.string.isRequired,
+    query: PropTypes.string,
   };
 
   render() {
@@ -29,7 +30,7 @@ class HeaderSearch extends Component {
           {this.props.path == "/" ? <div className={s.placeholder}></div> : <Link className={s.brand} to="/">
             <img src={require('./../../public/WDAquaLogo2.png')} height="24" alt="WDAqua" />
             </Link>}
-          {(this.props.path == "/" || this.props.path == "/about" ) ? null : <QueryBox size="50"/>}
+          {(this.props.path.substring(0, 9) != "/question") ? null : <QueryBox size="50"/>}
           <div className={s.banner}>
           </div>
         </div>
